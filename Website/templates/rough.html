@@ -1,0 +1,102 @@
+{%extends "layout.html"%}
+{%block head%}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+<style>
+    @media screen and (max-width: 400px) {
+     #paypal-button-container {
+     width: 100%;
+     }
+    }
+    
+    @media screen and (min-width: 400px) {
+     #paypal-button-container {
+     width: 250px;
+     }
+    }
+
+    </style>
+{%endblock%}
+{%block body%}
+<h1>Vehicle Number - {{vehicle_number}}</h1>
+
+<button><a href = "/logout">Log out</a></button>
+<table class="table table-hover" style="background: linear-gradient(to bottom, #FFB88C, #DE6262);">
+    <thead class="thead-light">
+      <tr class="bg-primary">
+        <th scope="col">Sno.</th>
+        <th scope="col">Date</th>
+        <th scope="col">Location</th>
+        <th scope="col">amount</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for bill in data %}
+        <tr>
+            <th scope="row">{{i}}</th>
+                <td>{{ bill[0]}}</td>
+                <td>{{ bill[1]}}</td>
+                <td>{{ bill[2]}}</td>
+        </tr>
+    {% endfor %}
+      <tfoot>
+          <tr class="table-success">
+              <th></th>
+              <td>Total</td>
+              <td></td>
+              <td>{{total}}</td>
+          </tr>
+          <tr>
+        </tr>
+    </tfoot>
+</tbody>
+
+</table>
+<div style="position: absolute;
+right: 10px;bottom: 15px;">
+<div id="paypal-button"></div>
+</div>
+
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+
+<script>
+  var CREATE_PAYMENT_URL  = 'http://127.0.0.1:5000/payment';
+  var EXECUTE_PAYMENT_URL = 'http://127.0.0.1:5000/execute';
+
+  paypal.Button.render({
+
+      env: 'sandbox', // Or 'sandbox'
+
+      commit: true, // Show a 'Pay Now' button
+
+      payment: function() {
+          return paypal.request.post(CREATE_PAYMENT_URL).then(function(data) {
+              return data.paymentID;
+          });
+      },
+      style: {
+ size: 'large',
+ color: 'blue',
+ shape: 'rect',
+ label: 'checkout',
+ tagline: 'true'
+},
+
+      onAuthorize: function(data) {
+          return paypal.request.post(EXECUTE_PAYMENT_URL, {
+              paymentID: data.paymentID,
+              payerID:   data.payerID
+          }).then(function(res) {
+
+              console.log(res.success)
+              // The payment is complete!
+              // You can now show a confirmation message to the customer
+          });
+      }
+      
+    
+  }, '#paypal-button');
+</script>
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+{%endblock%}

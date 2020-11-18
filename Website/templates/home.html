@@ -1,0 +1,151 @@
+{%extends "layout.html"%}
+{%block head%}
+<!--===============================================================================================-->
+<link rel="icon" type="image/png" href=" {{ url_for('static', filename='images/icons/favicon.ico') }} " />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+    href=" {{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }} ">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+    href=" {{ url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }} ">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static', filename='vendor/animate/animate.css') }} ">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static', filename='vendor/select2/select2.min.css') }} ">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+    href=" {{ url_for('static', filename='vendor/perfect-scrollbar/perfect-scrollbar.css') }} ">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href=" {{ url_for('static', filename='css/util.css') }} ">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+
+<style>
+    @media screen and (max-width: 400px) {
+        #paypal-button-container {
+            width: 100%;
+        }
+    }
+
+    @media screen and (min-width: 400px) {
+        #paypal-button-container {
+            width: 250px;
+        }
+    }
+
+    table td,
+    table th {
+        text-align: center !important;
+    }
+
+    .column4 {
+        width: 110px;
+        text-align: center;
+    }
+
+    .wrap-table100 {
+        width: 100%;
+    }
+
+    .table100 {
+        width: 92%;
+        margin-left: 4.09%;
+        margin-top: 4%;
+    }
+
+    table tfoot tr {
+        height: 60px;
+        background: #36304a;
+    }
+</style>
+{%endblock%}
+{%block body%}
+
+
+<div id="page-container">
+
+
+
+    <div class="wrap-table100">
+        <div class="table100">
+            <table>
+                <thead>
+                    <tr class="table100-head">
+                        <th class="column1">Sno.</th>
+                        <th class="column1">Date</th>
+                        <th class="column2">Location</th>
+                        <th class="column3">Tax</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {% for charge in tax %}
+                        <td class="column1">{{ loop.index }}</td>
+                        <td class="column2">{{charge[0]}}</td>
+                        <td class="column3">{{charge[1]}}</td>
+                        <td class="column4">{{charge[2]}} Rs</td>
+                    </tr>
+                    {% endfor %}
+                    <tr class="bg-dark">
+                        <td class="column1"></td>
+                        <td class="column2" style="color: white;"><strong>Total</strong></td>
+                        <td class="column3"></td>
+                        <td class="column4" style="color: white;"><strong>{{total}} Rs</strong></td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+        
+        <div id="paypal-button" style="margin-top: 39px;
+        margin-left: 600px;"></div>
+    </div>
+</div>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+<script>
+    var CREATE_PAYMENT_URL = 'http://127.0.0.1:5000/payment';
+    var EXECUTE_PAYMENT_URL = 'http://127.0.0.1:5000/execute';
+
+    paypal.Button.render({
+
+        env: 'sandbox', // Or 'sandbox'
+
+        commit: true, // Show a 'Pay Now' button
+
+        payment: function () {
+            return paypal.request.post(CREATE_PAYMENT_URL).then(function (data) {
+                return data.paymentID;
+            });
+        },
+        style: { size: 'large', color: 'blue', shape: 'rect', label: 'checkout', tagline: 'true'},
+
+        onAuthorize: function (data) {
+            return paypal.request.post(EXECUTE_PAYMENT_URL, {
+                paymentID: data.paymentID,
+                payerID: data.payerID
+            }).then(function (res) {
+
+                console.log(res.success)
+                // The payment is complete!
+                // You can now show a confirmation message to the customer
+            });
+        }
+
+    }, '#paypal-button');
+</script>
+
+<!--===============================================================================================-->
+<script src=" {{ url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js') }} "></script>
+<!--===============================================================================================-->
+<script src=" {{ url_for('static', filename='vendor/bootstrap/js/popper.js') }} "></script>
+<script src=" {{ url_for('static', filename='vendor/bootstrap/js/bootstrap.min.js') }} "></script>
+<!--===============================================================================================-->
+<script src=" {{ url_for('static', filename='vendor/select2/select2.min.js') }} "></script>
+<!--===============================================================================================-->
+<script src="  {{ url_for('static', filename='js/main.js') }} "></script>
+
+
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{%endblock%}
