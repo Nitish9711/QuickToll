@@ -1,0 +1,8 @@
+{
+  "params":
+  {
+    "local_server":"True",
+    "gmail-user":"Your email id here",
+    "gmail-password":"Password"
+  }
+}
