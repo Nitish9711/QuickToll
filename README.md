@@ -1,0 +1,102 @@
+# **QuickToll** 
+#### *An autotmatice Toll System*  
+   
+</br>
+
+![Toll System](Website\static\img\2.jpg)
+
+## Table of Contents
+- [About](#about)
+- [Installation Prerequisites](#installation-prerequisites)
+- [How to Run this Website](#how-to-run)
+
+
+## Website Demo
+[Click Here to Download Report File](https://drive.google.com/file/d/1lY9LtFtqhd9L_YTEkXsFi031Vvbg0mnU/view?usp=sharing) \
+[Click Here to See the Presentation](https://drive.google.com/file/d/1Xrub8ykgLhUiPAxqlKlET8VXsO80p9I3/view?usp=sharing)
+
+
+## About
+Traffic congestions at toll booths are a phenomenon noticed at all tollbooths situated between major cities around the world. Traffic conjunction nearby toll stations cause wastage of time due to large queues and a large amount of air and sound pollution. 
+
+The main objective of this Automatic toll system is to implement a user-friendly stop free system where you don’t have to stop at the toll plaza in-order to manually pay the toll fee which in order saves time and reduces traffic conjunction which wastes a lot of journey time and fuel.
+
+This Project has the following functionalities :
+
+- Vehicle Number Plate is detected by Deep Learning Model Trained.
+- The users  can register their  complaints about anything to the admin.
+- the users  can pay the toll tax online using the website.
+
+This program detects and extract the Vehicle Number using TESSERACT OCR ENGINE. Image undergoes different operations to extract the image.
+</br>
+</br>
+
+1. First it take image as input.
+
+    ![Sample image](assets\3.jpg)
+    <br>
+
+2. Then it detects number plate and crop it.
+
+    ![Plate Detection](assets\1.png)
+    <br>
+
+3. Then it passes the image for processing as follows to extract vehicle Number.
+
+    ![Number Plate Processing](assets\2.png)
+    <br>
+
+4. Website User Login Page
+
+    ![Website Login Page](assets\4.png)
+    <br>
+
+5. Payment Page
+
+    ![Website Payment Page](assets\5.png)
+    <br>
+</br>
+
+
+## Installation Prerequisites
+- python
+>To Download python  [Go to the python Download Website](https://www.python.org/downloads/).
+
+- Tesseract 
+> To install Tesseract 32 bit version click on the [link](https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w32-setup-v5.0.0-alpha.20200328.exe)
+
+> To install Tesseract 64 bit version click on the [link](https://digi.bib.uni-mannheim.de/tesseract/tesseract-ocr-w64-setup-v5.0.0-alpha.20200328.exe)
+- Mongodb
+
+> To install Mongodb [Go to this Website](https://docs.mongodb.com/manual/administration/install-community/)
+
+- Prequisites Folders
+> To download models and datasets click on the [link](https://drive.google.com/drive/folders/1Nrxc-lz97VU74mmGQ0TrS1Ki5Qw1pOqr?usp=sharing)
+    >>Download the QuickToll Prequisites folder.  
+    >> Extract the folder and paste all the folder inside it in number_plate folder(models, logs, train, weight).
+
+---
+
+## How to Run this Project
+1. Clone this Repo to your Local Machine.
+2. Open The Terminal/CMD in the folder QuickToll.
+3. Type ```py -m pip install -r requirements.txt' ```to install all the required libraries.
+4. Enter your mail id and password in ```Website\config.json``` and ```number_plate\config.json ```.  
+5. Type ```mongod``` in your Terminal to Run mongodb Server (Ignore if already Running).
+6. To Detect number plate.  
+    a. Open terminal in the root folder.  
+    b. Type ``` cd number_plate ``` and hit enter.
+    c. Type ``` python main.py  ``` and run.
+7. For Website 
+    a. Open terminal in the root folder. 
+    b. Type ``` cd .. ``` in terminal(ignore if already in the root folder).  
+    c. Type ``` cd Website ``` in terminal.  
+    d. Open [http://127.0.0.1:5000/](http://127.0.0.1:5000/) in your browser.
+
+## Contributors
+[Nitish Kumar](https://github.com/seneark)
+
+[Mehul Jain](https://github.com/MridulC)
+
+# QuickToll
+# QuickToll
