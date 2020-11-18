@@ -1,0 +1,8 @@
+{
+    "mail" :{
+        "my_email": "Your email id here" ,
+        "password":  "Your Password Here"
+    },
+    "website": "http://127.0.0.1:5000/"
+    
+}
