@@ -3,12 +3,18 @@
    
 </br>
 
-![Toll System](Website\static\img\2.jpg)
+![Toll System](Website/static/img/2.jpg)
 
 ## Table of Contents
-- [About](#about)
-- [Installation Prerequisites](#installation-prerequisites)
-- [How to Run this Website](#how-to-run)
+- [**QuickToll**](#quicktoll)
+      - [*An autotmatice Toll System*](#an-autotmatice-toll-system)
+  - [Table of Contents](#table-of-contents)
+  - [Website Demo](#website-demo)
+  - [About](#about)
+  - [Installation Prerequisites](#installation-prerequisites)
+  - [How to Run this Project](#how-to-run-this-project)
+  - [Contributors](#contributors)
+
 
 
 ## Website Demo
@@ -33,27 +39,27 @@ This program detects and extract the Vehicle Number using TESSERACT OCR ENGINE. 
 
 1. First it take image as input.
 
-    ![Sample image](assets\3.jpg)
+    ![Sample image](assets/3.jpg)
     <br>
 
 2. Then it detects number plate and crop it.
 
-    ![Plate Detection](assets\1.png)
+    ![Plate Detection](assets/1.png)
     <br>
 
 3. Then it passes the image for processing as follows to extract vehicle Number.
 
-    ![Number Plate Processing](assets\2.png)
+    ![Number Plate Processing](assets/2.png)
     <br>
 
 4. Website User Login Page
 
-    ![Website Login Page](assets\4.png)
+    ![Website Login Page](assets/4.png)
     <br>
 
 5. Payment Page
 
-    ![Website Payment Page](assets\5.png)
+    ![Website Payment Page](assets/5.png)
     <br>
 </br>
 
@@ -70,6 +76,10 @@ This program detects and extract the Vehicle Number using TESSERACT OCR ENGINE. 
 
 > To install Mongodb [Go to this Website](https://docs.mongodb.com/manual/administration/install-community/)
 
+- Paypal accounts
+> Create Paypal sandbox developer account and make two different sandbox accounts one business and one personal.  
+>  Now create a new project via dashboard and copy and paste client_Id key and client sceret key in ``` Website/app.py```.
+
 - Prequisites Folders
 > To download models and datasets click on the [link](https://drive.google.com/drive/folders/1Nrxc-lz97VU74mmGQ0TrS1Ki5Qw1pOqr?usp=sharing)
     >>Download the QuickToll Prequisites folder.  
@@ -81,22 +91,21 @@ This program detects and extract the Vehicle Number using TESSERACT OCR ENGINE. 
 1. Clone this Repo to your Local Machine.
 2. Open The Terminal/CMD in the folder QuickToll.
 3. Type ```py -m pip install -r requirements.txt' ```to install all the required libraries.
-4. Enter your mail id and password in ```Website\config.json``` and ```number_plate\config.json ```.  
-5. Type ```mongod``` in your Terminal to Run mongodb Server (Ignore if already Running).
-6. To Detect number plate.  
+4. Enter your mail id and password in ```Website/config.json``` and ```number_plate/config.json ```.  
+6. Now create a new project via dashboard and copy the paste client_Id key.
+7. Type ```mongod``` in your Terminal to Run mongodb Server (Ignore if already Running).
+8. To Detect number plate.  
     a. Open terminal in the root folder.  
     b. Type ``` cd number_plate ``` and hit enter.
     c. Type ``` python main.py  ``` and run.
-7. For Website 
+9. For Website 
     a. Open terminal in the root folder. 
     b. Type ``` cd .. ``` in terminal(ignore if already in the root folder).  
     c. Type ``` cd Website ``` in terminal.  
     d. Open [http://127.0.0.1:5000/](http://127.0.0.1:5000/) in your browser.
 
 ## Contributors
-[Nitish Kumar](https://github.com/seneark)
+[Nitish Kumar](https://github.com/Nitish9711)
 
-[Mehul Jain](https://github.com/MridulC)
+[Mehul Jain](https://github.com/Nitish9711)
 
-# QuickToll
-# QuickToll
