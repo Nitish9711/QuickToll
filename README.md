@@ -9,11 +9,16 @@
 - [**QuickToll**](#quicktoll)
       - [*An autotmatice Toll System*](#an-autotmatice-toll-system)
   - [Table of Contents](#table-of-contents)
+  - [demo](#demo)
   - [About](#about)
   - [Installation Prerequisites](#installation-prerequisites)
   - [How to Run this Project](#how-to-run-this-project)
   - [Contributors](#contributors)
 
+
+## demo
+[Click Here to See the PPT](https://drive.google.com/file/d/1ILHy37teAyrGNYbV09gsiXmfZxjpdPTP/view?usp=sharing)
+[Click Here to See the DEMO VIDEO](https://drive.google.com/file/d/1ILHy37teAyrGNYbV09gsiXmfZxjpdPTP/view?usp=sharing)
 
 
 ## About
