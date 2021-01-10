@@ -1,0 +1,5 @@
+number_plate/models/
+number_plate/weight/
+number_plate/train/
+number_plate/logs/
+

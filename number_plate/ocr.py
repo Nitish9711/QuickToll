@@ -129,10 +129,10 @@ class extractnumber:
   
     def removefiles(self):
         print("daf")
-        # os.remove('output.png')
-        # os.remove('Increased_black.png')
-        # os.remove('Contour_mapping.png')
-        # os.remove('black_white.png')
-        # os.remove('output4.png')
-        # os.remove('gray.png')
+        os.remove('output.png')
+        os.remove('Increased_black.png')
+        os.remove('Contour_mapping.png')
+        os.remove('black_white.png')
+        os.remove('output4.png')
+        os.remove('gray.png')
 

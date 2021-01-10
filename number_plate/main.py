@@ -4,10 +4,12 @@ import requests
 import json
 from datetime import date 
 from pymongo import MongoClient
+import pymongo
 from pymongo.errors import *
 
 try:
-    client = MongoClient('mongodb://localhost:27017/')
+    # client = MongoClient('mongodb://localhost:27017/')
+    myclient = pymongo.MongoClient("mongodb+srv://nitish_kumar:1234567890@cluster0.xt7ds.mongodb.net/QuickToll?retryWrites=true&w=majority")
 except ConnectionFailure:
     print("Server not available")
 
@@ -104,7 +106,8 @@ class utility:
 
 class toll(plate_detector, extractnumber, utility):
     def __init__(self, file_name):
-        self.quick_toll = client.QuickToll
+        # self.quick_toll = client.QuickToll
+        self.quick_toll = myclient.get_database('QuickToll')
         self.db = self.quick_toll["user"]
         self.file_name = file_name
         self.execute(file_name)

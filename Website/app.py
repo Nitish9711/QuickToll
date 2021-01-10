@@ -24,7 +24,8 @@ paypalrestsdk.configure({
     "client_secret": "EKNIboVSYKvTcMn82exQX6vXAw9Ic1K2q5V2IpRzeDeEsnf-U_gkJZhahYRYl2O4rTr58tDufwo6-29a"})
 
 
-myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+# myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+myclient = pymongo.MongoClient("mongodb+srv://nitish_kumar:1234567890@cluster0.xt7ds.mongodb.net/QuickToll?retryWrites=true&w=majority")
 
 
 with open('config.json', 'r') as c:
@@ -59,7 +60,7 @@ class utility:
         else:
             print("found")
             otp = self.generateOTP()
-            self.send_otp_mail(otp)
+            self.send_otp_mail(otp, doc["email"])
             return otp
 
     def contact_mail(self, name, email, message, phone, date):
@@ -81,11 +82,12 @@ class utility:
 
         return OTP
 
-    def send_otp_mail(self, otp):
+    def send_otp_mail(self, otp,email):
         msg = Message(
-            'Your One time password is ',
+            'Your One time password for QuickToll is ',
             sender=str(params['gmail-user']),
-            recipients=['nitishk12c@gmail.com']
+            # recipients=['nitishk12c@gmail.com']
+            recipients=[str(email)]
         )
         msg.body = otp
         mail.send(msg)
@@ -126,7 +128,8 @@ util = utility()
 class store(utility):
 
     def __init__(self):
-        self.QuickToll = myclient["QuickToll"]
+        # self.QuickToll = myclient["QuickToll"]
+        self.QuickToll = myclient.get_database('QuickToll')
         self.contact = self.QuickToll["contact"]
         self.user = self.QuickToll["user"]
 
@@ -155,7 +158,9 @@ class store(utility):
             "zip": str(zip),
             "v_typ": str(v_type),
             "vehicle_number": str(vehicle_number),
-            "total": 0,
+            "total": int(0),
+            # "tax": [""]
+            
         }
         self.user.insert_one(post)
 
@@ -196,7 +201,7 @@ def register():
         vehicle_number = request.form.get('vehicle_number')
         image = request.form.get('file1')
         ob = store()
-        ob.user(first_name, last_name, email, phone, address, city,
+        ob.User(first_name, last_name, email, phone, address, city,
                 state, zip_code, v_type, vehicle_number, datetime.now(), image)
         if 'file1' not in request.files:
             return 'there is no file1 in form!'
@@ -330,4 +335,4 @@ def server_error(e):
     return render_template('index.html')
 
 
-app.run(debug=True)
+app.run(debug=False)

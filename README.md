@@ -9,17 +9,11 @@
 - [**QuickToll**](#quicktoll)
       - [*An autotmatice Toll System*](#an-autotmatice-toll-system)
   - [Table of Contents](#table-of-contents)
-  - [Website Demo](#website-demo)
   - [About](#about)
   - [Installation Prerequisites](#installation-prerequisites)
   - [How to Run this Project](#how-to-run-this-project)
   - [Contributors](#contributors)
 
-
-
-## Website Demo
-[Click Here to Download Report File](https://drive.google.com/file/d/1lY9LtFtqhd9L_YTEkXsFi031Vvbg0mnU/view?usp=sharing) \
-[Click Here to See the Presentation](https://drive.google.com/file/d/1Xrub8ykgLhUiPAxqlKlET8VXsO80p9I3/view?usp=sharing)
 
 
 ## About
@@ -81,8 +75,8 @@ This program detects and extract the Vehicle Number using TESSERACT OCR ENGINE. 
 >  Now create a new project via dashboard and copy and paste client_Id key and client sceret key in ``` Website/app.py```.
 
 - Prequisites Folders
-> To download models and datasets click on the [link](https://drive.google.com/drive/folders/1Nrxc-lz97VU74mmGQ0TrS1Ki5Qw1pOqr?usp=sharing)
-    >>Download the QuickToll Prequisites folder.  
+> To download models and datasets click on the [link](https://drive.google.com/drive/folders/1Do0C_qO-JSEAD6Nw98XP3o8HJ21IagS2?usp=sharing)
+    >>Download the QuickToll Prequisites folder.    
     >> Extract the folder and paste all the folder inside it in number_plate folder(models, logs, train, weight).
 
 ---
@@ -107,5 +101,5 @@ This program detects and extract the Vehicle Number using TESSERACT OCR ENGINE. 
 ## Contributors
 [Nitish Kumar](https://github.com/Nitish9711)
 
-[Mehul Jain](https://github.com/Nitish9711)
+[Rajat Kumar](https://github.com/Rajat10Kumar)
 
